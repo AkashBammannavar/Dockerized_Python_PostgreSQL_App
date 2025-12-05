@@ -29,8 +29,8 @@ his project demonstrates:
 
 3.Files(Code)
 
-
 <img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
+
 app.py
 
 <img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
