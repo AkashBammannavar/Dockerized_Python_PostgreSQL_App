@@ -31,21 +31,21 @@ his project demonstrates:
 
 <img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
 
-This Python file connects to the PostgreSQL database running in another container.
-It waits for 5 seconds to allow PostgreSQL to fully start before connecting.
-It inserts one record and then reads and prints all records from the database.
+    This Python file connects to the PostgreSQL database running in another container.
+    It waits for 5 seconds to allow PostgreSQL to fully start before connecting.
+    It inserts one record and then reads and prints all records from the database.
 
 app.py
 
 <img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
 
-Uses the lightweight official Python image (python:3.10-slim).
+    Uses the lightweight official Python image (python:3.10-slim).
 
-Sets /app as the working directory inside the container.
+    Sets /app as the working directory inside the container.
 
-Copies the Python file into the container.
+    Copies the Python file into the container.
 
-Installs the PostgreSQL driver (psycopg2-binary) and runs the Python program.
+    Installs the PostgreSQL driver (psycopg2-binary) and runs the Python program.
 
 
 4. Build the app image
@@ -55,7 +55,7 @@ Installs the PostgreSQL driver (psycopg2-binary) and runs the Python program.
 
    Docker packages Python, dependencies, and application code together.
 
-  docker images confirms that the build was successful.
+   docker images confirms that the build was successful.
    Open your terminal
 
    <img width="497" height="417" alt="image" src="https://github.com/user-attachments/assets/69a8601f-9ec1-441a-addc-5f3c789acf61" />
@@ -79,30 +79,30 @@ Installs the PostgreSQL driver (psycopg2-binary) and runs the Python program.
    
    <img width="448" height="190" alt="image" src="https://github.com/user-attachments/assets/a211d623-fcea-44ca-8865-e10aba37b493" />
 
-8. Run PostgreSQL container
+7. Run PostgreSQL container
 
-PostgreSQL runs inside a Docker container instead of local installation.
+    PostgreSQL runs inside a Docker container instead of local installation.
 
-Environment variables create the database and user automatically.
+    Environment variables create the database and user automatically.
 
-The container is attached to mynetwork for communication.
+    The container is attached to mynetwork for communication.
 
-docker ps confirms PostgreSQL is running.
+    docker ps confirms PostgreSQL is running.
 
    docker run -d --name my-postgres --network mynetwork -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=mydb postgres
 
    <img width="1008" height="76" alt="image" src="https://github.com/user-attachments/assets/ac968112-2f24-4451-bb19-a29ae2b035bb" />
 
 
-9. Run the app container (connects to PostgreSQL)
+8. Run the app container (connects to PostgreSQL)
 
-The app container is started on the same network.
+    The app container is started on the same network.
 
-It uses the hostname my-postgres to access PostgreSQL.
+    It uses the hostname my-postgres to access PostgreSQL.
 
-It creates a table, inserts data, and fetches the record.
+    It creates a table, inserts data, and fetches the record.
 
-Output confirms database connection and successful execution.
+    Output confirms database connection and successful execution.
 
     Run your app on the same network so it can reach Postgres by container name my-postgres:
    
