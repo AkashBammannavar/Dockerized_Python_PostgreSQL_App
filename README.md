@@ -108,4 +108,10 @@ app.py
    
    <img width="752" height="91" alt="image" src="https://github.com/user-attachments/assets/e2ae6dd3-2707-4c6c-9a50-1891409b7995" />
 
+IN DOCKER
 
+<img width="1254" height="684" alt="image" src="https://github.com/user-attachments/assets/6149abc1-6ead-45fe-a06b-db3a01847e19" />
+
+Images
+
+<img width="1255" height="497" alt="image" src="https://github.com/user-attachments/assets/f7dc78fd-796a-47ce-8f56-873985eae97e" />
