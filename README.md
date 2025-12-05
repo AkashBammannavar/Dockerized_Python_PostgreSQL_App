@@ -1,4 +1,4 @@
-<img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />Dockerize Python App — Step-by-step Guide
+Dockerize Python App — Step-by-step Guide
 
 This repository shows how to Dockerize a simple Python app that connects to PostgreSQL, creates a table, inserts a row, and reads it back. It includes commands for Windows PowerShell and Linux , Dockerfile, app.py, networking, troubleshooting and instructions for adding screenshots to the repo.
 
@@ -28,6 +28,7 @@ his project demonstrates:
   Basic knowledge of terminal/VS CODE
 
 3.Files(Code)
+<img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
 app.py
 
 import psycopg2
