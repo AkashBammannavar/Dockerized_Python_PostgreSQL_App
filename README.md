@@ -31,6 +31,10 @@ his project demonstrates:
 
 <img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
 
+This Python file connects to the PostgreSQL database running in another container.
+It waits for 5 seconds to allow PostgreSQL to fully start before connecting.
+It inserts one record and then reads and prints all records from the database.
+
 app.py
 
 <img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
