@@ -31,42 +31,30 @@ his project demonstrates:
 <img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
 app.py
 
-import psycopg2
-import time
+<img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
 
-time.sleep(5)
+4. Build the app image
+   Open your terminal
 
-try:
-conn = psycopg2.connect(
-host="my-postgres",
-database="mydb",
-user="user",
-password="pass"
-)
+   <img width="497" height="417" alt="image" src="https://github.com/user-attachments/assets/69a8601f-9ec1-441a-addc-5f3c789acf61" />
 
-cur = conn.cursor()
+     Check images:
 
-# Create table
-cur.execute("""
-CREATE TABLE IF NOT EXISTS students (
-id SERIAL PRIMARY KEY,
-name TEXT,
-course TEXT
-)
-""")
+   <img width="468" height="121" alt="image" src="https://github.com/user-attachments/assets/48b55206-a6eb-4f0e-a396-a0f58872f9f4" />
 
-cur.execute("INSERT INTO students (name, course) VALUES (%s, %s)", ("Akash", "Docker"))
+5. Create a Docker network
+    Use a custom network so containers can find each other by name.
+   <img width="448" height="190" alt="image" src="https://github.com/user-attachments/assets/a211d623-fcea-44ca-8865-e10aba37b493" />
 
-conn.commit()
-cur.execute("SELECT * FROM students")
-rows = cur.fetchall()
+6. Run PostgreSQL container
 
-print("Database Records:")
-for row in rows:
-print(row)
+   docker run -d --name my-postgres --network mynetwork -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=mydb postgres
 
-cur.close()
-conn.close()
+   <img width="1008" height="76" alt="image" src="https://github.com/user-attachments/assets/ac968112-2f24-4451-bb19-a29ae2b035bb" />
 
-except Exception as e:
-print("Error:", e)
+
+7. Run the app container (connects to PostgreSQL)
+       Run your app on the same network so it can reach Postgres by container name my-postgres:
+   <img width="752" height="91" alt="image" src="https://github.com/user-attachments/assets/e2ae6dd3-2707-4c6c-9a50-1891409b7995" />
+
+
