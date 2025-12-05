@@ -39,8 +39,23 @@ app.py
 
 <img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
 
+Uses the lightweight official Python image (python:3.10-slim).
+
+Sets /app as the working directory inside the container.
+
+Copies the Python file into the container.
+
+Installs the PostgreSQL driver (psycopg2-binary) and runs the Python program.
+
 
 4. Build the app image
+   The docker build command creates a Docker image using the Dockerfile.
+
+   The image is given the name my-python-app.
+
+   Docker packages Python, dependencies, and application code together.
+
+  docker images confirms that the build was successful.
    Open your terminal
 
    <img width="497" height="417" alt="image" src="https://github.com/user-attachments/assets/69a8601f-9ec1-441a-addc-5f3c789acf61" />
@@ -51,20 +66,45 @@ app.py
 
    <img width="468" height="121" alt="image" src="https://github.com/user-attachments/assets/48b55206-a6eb-4f0e-a396-a0f58872f9f4" />
 
-5. Create a Docker network
+6. Create a Docker network
+
+    A custom network allows containers to communicate using container names.
+
+    PostgreSQL and Python app must be on the same network.
+
+    docker network create creates a new bridge network.
+
+    docker network ls confirms successful creation.
     Use a custom network so containers can find each other by name.
    
    <img width="448" height="190" alt="image" src="https://github.com/user-attachments/assets/a211d623-fcea-44ca-8865-e10aba37b493" />
 
-7. Run PostgreSQL container
+8. Run PostgreSQL container
+
+PostgreSQL runs inside a Docker container instead of local installation.
+
+Environment variables create the database and user automatically.
+
+The container is attached to mynetwork for communication.
+
+docker ps confirms PostgreSQL is running.
 
    docker run -d --name my-postgres --network mynetwork -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=mydb postgres
 
    <img width="1008" height="76" alt="image" src="https://github.com/user-attachments/assets/ac968112-2f24-4451-bb19-a29ae2b035bb" />
 
 
-8. Run the app container (connects to PostgreSQL)
-       Run your app on the same network so it can reach Postgres by container name my-postgres:
+9. Run the app container (connects to PostgreSQL)
+
+The app container is started on the same network.
+
+It uses the hostname my-postgres to access PostgreSQL.
+
+It creates a table, inserts data, and fetches the record.
+
+Output confirms database connection and successful execution.
+
+    Run your app on the same network so it can reach Postgres by container name my-postgres:
    
    <img width="752" height="91" alt="image" src="https://github.com/user-attachments/assets/e2ae6dd3-2707-4c6c-9a50-1891409b7995" />
 
