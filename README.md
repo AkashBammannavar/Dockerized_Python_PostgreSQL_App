@@ -28,33 +28,40 @@ his project demonstrates:
   Basic knowledge of terminal/VS CODE
 
 3.Files(Code)
+
+
 <img width="393" height="374" alt="image" src="https://github.com/user-attachments/assets/825e300d-e3e9-418a-9f42-c597c8d95f8a" />
 app.py
 
 <img width="521" height="221" alt="image" src="https://github.com/user-attachments/assets/f3990931-18f5-4cf4-a983-79832444755d" />
+
 
 4. Build the app image
    Open your terminal
 
    <img width="497" height="417" alt="image" src="https://github.com/user-attachments/assets/69a8601f-9ec1-441a-addc-5f3c789acf61" />
 
+
      Check images:
+
 
    <img width="468" height="121" alt="image" src="https://github.com/user-attachments/assets/48b55206-a6eb-4f0e-a396-a0f58872f9f4" />
 
 5. Create a Docker network
     Use a custom network so containers can find each other by name.
+   
    <img width="448" height="190" alt="image" src="https://github.com/user-attachments/assets/a211d623-fcea-44ca-8865-e10aba37b493" />
 
-6. Run PostgreSQL container
+7. Run PostgreSQL container
 
    docker run -d --name my-postgres --network mynetwork -e POSTGRES_USER=user -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=mydb postgres
 
    <img width="1008" height="76" alt="image" src="https://github.com/user-attachments/assets/ac968112-2f24-4451-bb19-a29ae2b035bb" />
 
 
-7. Run the app container (connects to PostgreSQL)
+8. Run the app container (connects to PostgreSQL)
        Run your app on the same network so it can reach Postgres by container name my-postgres:
+   
    <img width="752" height="91" alt="image" src="https://github.com/user-attachments/assets/e2ae6dd3-2707-4c6c-9a50-1891409b7995" />
 
 
